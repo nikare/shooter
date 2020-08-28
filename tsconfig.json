@@ -11,6 +11,7 @@
         "noEmitOnError": true,
         "strictNullChecks": true,
         "baseUrl": "./",
+        "pretty": true,
         "paths": {
             "~/*": ["src/*"]
         }

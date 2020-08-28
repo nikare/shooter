@@ -5,8 +5,6 @@ export class PreloadScene extends Phaser.Scene {
         super(SCENES.PRELOAD);
     }
 
-    preload() {}
-
     create() {
         this.scene.start(SCENES.START);
     }
