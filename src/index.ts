@@ -1,5 +1,7 @@
 import Phaser from 'phaser';
 
+import { BootScene, PreloadScene, StartScene } from './scenes';
+
 new (class Game extends Phaser.Game {
     constructor() {
         super({
@@ -7,7 +9,7 @@ new (class Game extends Phaser.Game {
             parent: 'container',
             width: 1280,
             height: 720,
-            scene: [],
+            scene: [BootScene, PreloadScene, StartScene],
         });
     }
 })();
