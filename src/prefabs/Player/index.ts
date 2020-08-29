@@ -5,7 +5,8 @@ import { NovakidGame } from '~/game';
 const { dragon } = atlases;
 
 export class Player extends Phaser.GameObjects.Sprite {
-    body: Phaser.Physics.Arcade.Body = this.body;
+    velocity: number;
+    body: Phaser.Physics.Arcade.Body;
 
     constructor(public scene: GameScene, public game: NovakidGame) {
         super(scene, 150, game.height / 2, dragon.sprite, dragon.frames[0].filename);
@@ -16,6 +17,7 @@ export class Player extends Phaser.GameObjects.Sprite {
         this.scene.add.existing(this);
         this.scene.physics.add.existing(this);
         this.body.enable = true;
+        this.velocity = 500;
     }
 
     move() {
@@ -24,15 +26,15 @@ export class Player extends Phaser.GameObjects.Sprite {
         this.body.setVelocity(0);
 
         if (left && left.isDown) {
-            this.body.setVelocityX(-500);
+            this.body.setVelocityX(-this.velocity);
         } else if (right && right.isDown) {
-            this.body.setVelocityX(500);
+            this.body.setVelocityX(this.velocity);
         }
 
         if (up && up.isDown) {
-            this.body.setVelocityY(-500);
+            this.body.setVelocityY(-this.velocity);
         } else if (down && down.isDown) {
-            this.body.setVelocityY(500);
+            this.body.setVelocityY(this.velocity);
         }
     }
 }

@@ -12,9 +12,12 @@ export class GameScene extends Phaser.Scene {
         super(SCENES.GAME);
     }
 
+    init() {
+        this.cursors = this.input.keyboard.createCursorKeys();
+    }
+
     create() {
         this.createImages();
-        this.cursors = this.input.keyboard.createCursorKeys();
         this.player = new Player(this, this.game);
     }
 
