@@ -1,6 +1,7 @@
 import { images } from '~/assets';
 import { config } from '~/config';
-import { SCENES } from '..';
+import { SCENES } from '~/scenes';
+import { FONTS } from '~/enums';
 
 export class StartScene extends Phaser.Scene {
     constructor() {
@@ -8,22 +9,20 @@ export class StartScene extends Phaser.Scene {
     }
 
     create() {
-        this.createBackground();
+        Object.values(images).forEach((image) => {
+            this.add.sprite(0, 0, image).setOrigin(0);
+        });
         this.createText();
         this.setEvents();
     }
 
-    createBackground() {
-        this.add.sprite(0, 0, images.background).setOrigin(0);
-    }
-
     createText() {
-        this.add
-            .text(config.width / 2, 500, 'Tap to start', {
-                font: '40px CurseCasual',
-                fill: '#fff',
-            })
-            .setOrigin(0.5);
+        const fonts = {
+            fontSize: '40px',
+            fontFamily: FONTS.CURSE_CASUAL,
+            fill: '#fff',
+        };
+        this.add.text(config.width / 2, 500, 'Tap to start', fonts).setOrigin(0.5);
     }
 
     setEvents() {

@@ -1,4 +1,4 @@
-import { BootScene, PreloadScene, StartScene } from './scenes';
+import { BootScene, PreloadScene, StartScene, GameScene } from './scenes';
 
 interface IConfig {
     width: number;
@@ -10,5 +10,5 @@ export const config: Phaser.Types.Core.GameConfig & IConfig = {
     parent: 'container',
     width: 1280,
     height: 720,
-    scene: [BootScene, PreloadScene, StartScene],
+    scene: [BootScene, PreloadScene, StartScene, GameScene],
 };

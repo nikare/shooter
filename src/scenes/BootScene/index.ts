@@ -1,5 +1,5 @@
 import { images } from '~/assets';
-import { SCENES } from '..';
+import { SCENES } from '~/scenes';
 
 export class BootScene extends Phaser.Scene {
     constructor() {
@@ -7,7 +7,9 @@ export class BootScene extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image(images.background, images.background);
+        Object.values(images).forEach((image) => {
+            this.load.image(image, image);
+        });
     }
 
     create() {
