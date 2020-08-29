@@ -12,6 +12,7 @@
         "strictNullChecks": true,
         "baseUrl": "./",
         "pretty": true,
+        "strictPropertyInitialization": false,
         "paths": {
             "~/*": ["src/*"]
         }

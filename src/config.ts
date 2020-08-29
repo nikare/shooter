@@ -10,5 +10,11 @@ export const config: Phaser.Types.Core.GameConfig & IConfig = {
     parent: 'container',
     width: 1280,
     height: 720,
+    physics: {
+        default: 'arcade',
+        arcade: {
+            debug: false,
+        },
+    },
     scene: [BootScene, PreloadScene, StartScene, GameScene],
 };
