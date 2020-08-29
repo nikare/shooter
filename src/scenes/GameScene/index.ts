@@ -7,6 +7,7 @@ export class GameScene extends Phaser.Scene {
     game: NovakidGame;
     player: Player;
     cursors: Phaser.Types.Input.Keyboard.CursorKeys;
+    background: Phaser.GameObjects.TileSprite;
 
     constructor() {
         super(SCENES.GAME);
@@ -17,17 +18,17 @@ export class GameScene extends Phaser.Scene {
     }
 
     create() {
-        this.createImages();
+        this.createBackground();
         this.player = new Player(this, this.game);
     }
 
     update() {
         this.player.move();
+        this.background.tilePositionX += 1;
     }
 
-    createImages() {
-        Object.values(images).forEach((image) => {
-            this.add.sprite(0, 0, image).setOrigin(0);
-        });
+    createBackground() {
+        const { width, height } = this.game;
+        this.background = this.add.tileSprite(0, 0, width, height, images.background).setOrigin(0);
     }
 }
