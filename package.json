@@ -3,8 +3,9 @@
     "version": "0.0.1",
     "description": "Shooter Game",
     "repository": "https://github.com/nikare/shooter",
+    "homepage": "https://nikare.github.io/shooter/",
     "license": "ISC",
-    "typings": "src/typings.d.ts",
+    "typings": "typings.d.ts",
     "author": {
         "name": "Nikolay Karetskiy",
         "email": "lynxloner@icloud.com"

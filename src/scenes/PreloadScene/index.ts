@@ -1,7 +1,10 @@
-import { atlases } from '~/assets';
+import { NovakidGame } from '~/game';
 import { SCENES } from '~/scenes';
+import { atlases } from '~/assets';
 
 export class PreloadScene extends Phaser.Scene {
+    game: NovakidGame;
+
     constructor() {
         super(SCENES.PRELOAD);
     }

@@ -1,9 +1,10 @@
-import { images } from '~/assets';
-import { config } from '~/config';
+import { NovakidGame } from '~/game';
 import { SCENES } from '~/scenes';
-import { FONTS } from '~/enums';
+import { images } from '~/assets';
 
 export class StartScene extends Phaser.Scene {
+    game: NovakidGame;
+
     constructor() {
         super(SCENES.START);
     }
@@ -12,6 +13,7 @@ export class StartScene extends Phaser.Scene {
         Object.values(images).forEach((image) => {
             this.add.sprite(0, 0, image).setOrigin(0);
         });
+
         this.createText();
         this.setEvents();
     }
@@ -19,10 +21,11 @@ export class StartScene extends Phaser.Scene {
     createText() {
         const fonts = {
             fontSize: '40px',
-            fontFamily: FONTS.CURSE_CASUAL,
+            fontFamily: this.game.FONTS.CurseCasual,
             fill: '#fff',
         };
-        this.add.text(config.width / 2, 500, 'Tap to start', fonts).setOrigin(0.5);
+
+        this.add.text(this.game.width / 2, 500, 'Tap to start', fonts).setOrigin(0.5);
     }
 
     setEvents() {
