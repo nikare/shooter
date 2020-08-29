@@ -1,6 +1,4 @@
-import dragonSprite from './dragon.png';
-import dragonframes from './dragon.json';
+import { dragon } from './dragon';
+import { enemy } from './enemy';
 
-export const atlases = {
-    dragon: { sprite: dragonSprite, ...dragonframes },
-};
+export const atlases = { dragon, enemy };

@@ -9,13 +9,16 @@ export class StartScene extends Phaser.Scene {
         super(SCENES.START);
     }
 
+    init() {
+        this.setEvents();
+    }
+
     create() {
         Object.values(images).forEach((image) => {
             this.add.sprite(0, 0, image).setOrigin(0);
         });
 
         this.createText();
-        this.setEvents();
     }
 
     createText() {

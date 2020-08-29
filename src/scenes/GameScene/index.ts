@@ -1,11 +1,12 @@
 import { NovakidGame } from '~/game';
 import { SCENES } from '~/scenes';
-import { Player } from '~/prefabs';
+import { Player, Enemy } from '~/prefabs';
 import { images } from '~/assets';
 
 export class GameScene extends Phaser.Scene {
     game: NovakidGame;
     player: Player;
+    enemy: Enemy;
     cursors: Phaser.Types.Input.Keyboard.CursorKeys;
     background: Phaser.GameObjects.TileSprite;
 
@@ -20,10 +21,12 @@ export class GameScene extends Phaser.Scene {
     create() {
         this.createBackground();
         this.player = new Player(this, this.game);
+        this.enemy = new Enemy(this, this.game);
     }
 
     update() {
         this.player.move();
+        this.enemy.move();
         this.background.tilePositionX += 1;
     }
 
